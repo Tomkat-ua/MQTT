@@ -7,7 +7,7 @@ echo "container STOP:"
 echo "container RM:"
  docker container rm $container
 
-docker run -dt -p 1883:1883 -p 9001:9001 \
+docker run -dt -p 1883:1883 \
     --net net_18  --ip 172.18.0.2 \
     --restart=always \
     --name=$container \
@@ -17,6 +17,8 @@ docker run -dt -p 1883:1883 -p 9001:9001 \
     -v mosquitto_log:/mosquitto/log \
     $img
 
+#-p 9001:9001 \
+#--net net_18  --ip 172.18.0.2 \
 #    --name=MQTT \
 #    -v /mosquitto/data \
 #    -v /mosquitto/log  \
